@@ -1,0 +1,43 @@
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Add Story Form</h4>
+            <div *ngIf="success" class="alert alert-success" role="alert" role="alert">
+                <strong> Data Saved Successfully</strong>
+            </div>
+            <form class="forms-sample" [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="form-group row">
+                    <label for="storyDescription" class="col-sm-3 col-form-label">Story News<a style="color: red;">*</a></label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="storyDescription" formControlName="storyDescription" placeholder="News Title">
+                        <div *ngIf="form.get('storyDescription').touched && form.get('storyDescription').invalid" style="color: red;">
+                            <div *ngIf="form.get('storyDescription').errors.required">Name is required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="storyImage" class="col-sm-3 col-form-label">Story Image <a style="color: red;">*</a></label>
+                    <div class="col-sm-9">
+                        <input type="file" accept="image/png, image/jpeg, image/jpg" class="form-control-file" (change)="storyImgConvert($event)" id="addControl" placeholder="News Subjet">
+
+                        <br>
+                        <!---Progress bar-->
+                        <div class="progress form-group" *ngIf="progress > 0">
+                            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width.%]="progress">
+                            </div>
+                        </div>
+                        <div class="alert alert-success" *ngIf=successFile>
+                            <strong>{{result}}</strong>
+                        </div>
+                        <!---Progress bar-->
+
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-gradient-primary mr-2" [disabled]="!form.valid">Submit</button>
+                <button class="btn btn-light" type="reset">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>

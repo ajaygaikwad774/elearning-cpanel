@@ -1,0 +1,127 @@
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Updated Profile</h4>
+        <div *ngIf="success" class="alert alert-success" role="alert" role="alert">
+          <strong> Data Saved Successfully</strong>
+        </div>
+        <form class="forms-sample" [formGroup]="form" (ngSubmit)="addProfile()">
+          <div class="form-group row">
+            <label for="title" class="col-sm-3 col-form-label">Title <a style="color: red;">*</a></label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="firstNm" disabled [value]="admin.title" formControlName="title" placeholder="Title">
+              <div *ngIf="form.get('title').touched && form.get('title').invalid" style="color: red;">
+                <div *ngIf="form.get('title').errors.required">Title is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="firstNm" class="col-sm-3 col-form-label">First Name <a style="color: red;">*</a></label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="firstNm" [value]="admin.firstNm" formControlName="firstNm" placeholder="First Name">
+              <div *ngIf="form.get('firstNm').touched && form.get('firstNm').invalid" style="color: red;">
+                <div *ngIf="form.get('firstNm').errors.required">First name is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="middleNm" class="col-sm-3 col-form-label">Middle Name <a style="color: red;">*</a></label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="middleNm" [value]="admin.middleNm" formControlName="middleNm" placeholder="Middle Name">
+              <div *ngIf="form.get('middleNm').touched && form.get('middleNm').invalid" style="color: red;">
+                <div *ngIf="form.get('middleNm').errors.required">Middle name is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="lastNm" class="col-sm-3 col-form-label">Last Name <a style="color: red;">*</a></label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="lastNm" [value]="admin.lastNm" formControlName="lastNm" placeholder="Last Name">
+              <div *ngIf="form.get('lastNm').touched && form.get('lastNm').invalid" style="color: red;">
+                <div *ngIf="form.get('lastNm').errors.required">Last name is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="age" class="col-sm-3 col-form-label">Age <a style="color: red;">*</a></label>
+            <div class="col-sm-9">
+              <input type="number" class="form-control" id="age" [value]="admin.age" formControlName="age" placeholder="Age">
+              <div *ngIf="form.get('age').touched && form.get('age').invalid" style="color: red;">
+                <div *ngIf="form.get('age').errors.required">Age is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="mobileNo" class="col-sm-3 col-form-label">Mobile Number <a style="color: red;">*</a></label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="mobileNo"  formControlName="mobileNo" placeholder="Mobile Number">
+              <div *ngIf="form.get('mobileNo').touched && form.get('mobileNo').invalid" style="color: red;">
+                <div *ngIf="form.get('mobileNo').errors.required">Mobile number is required</div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="form-group row">
+            <label for="dob" class="col-sm-3 col-form-label">Date of Birth <a style="color: red;">*</a></label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="dob" formControlName="dob" placeholder="dd/mm/yyyy">
+              <div *ngIf="form.get('dob').touched && form.get('dob').invalid" style="color: red;">
+                <div *ngIf="form.get('dob').errors.required">Date of Birth is required</div>
+              </div>
+            </div>
+          </div> -->
+          <div class="form-group row">
+            <label for="gender" class="col-sm-3 col-form-label">Gender <a style="color: red;">*</a></label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="gender"  formControlName="gender" placeholder="Gender">
+              <div *ngIf="form.get('gender').touched && form.get('gender').invalid" style="color: red;">
+                <div *ngIf="form.get('gender').errors.required">Gender is required</div>
+              </div>
+            </div>
+          </div> 
+          <div formGroupName="address">
+            <div class="form-group row">
+              <label for="addrLn1" class="col-sm-3 col-form-label">Address Line 1</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="addrLn1"  formControlName="addrLn1" placeholder="Address Line 1">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="addrLn2" class="col-sm-3 col-form-label">Address Line 2</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="addrLn2"  formControlName="addrLn2" placeholder="Address Line 2">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="city" class="col-sm-3 col-form-label">City</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="city"  formControlName="city" placeholder="city">
+                
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="state" class="col-sm-3 col-form-label">State</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="state"  formControlName="state" placeholder="State">
+                
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="country" class="col-sm-3 col-form-label">Country</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="country"  formControlName="country" placeholder="Country">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="pincode" class="col-sm-3 col-form-label">Pincode</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="pincode"  formControlName="pincode" placeholder="Pincode">
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-gradient-primary mr-2" [disabled]="!form.valid">Submit</button>
+          <button class="btn btn-light" type="reset">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>

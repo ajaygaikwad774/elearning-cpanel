@@ -1,0 +1,134 @@
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Add Course Form</h4>
+
+            <!---Form course section-->
+            <form class="forms-sample" [formGroup]="addcourse" (ngSubmit)="addcourse1()">
+
+                <div class="form-group row">
+                    <label for="courseTitle" class="col-sm-3 col-form-label">Course Title</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="courseTitle" formControlName="courseTitle" placeholder="Course Title">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="courseSubTitle" class="col-sm-3 col-form-label">Course Sub Title</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="courseSubTitle" formControlName="courseSubTitle" placeholder="Course Sub Title">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Course category</label>
+                    <div class="col-sm-9">
+                        <select class="form-control">
+              <option>--Defaualt</option>
+              <option  *ngFor="let item of categoriesList" >{{item.categoryNm}}</option>
+             
+            </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="courseDesc" class="col-sm-3 col-form-label">Course Description</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" id="courseDesc" formControlName="courseDesc" rows="4"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="courseLanguage" class="col-sm-3 col-form-label">Course Language</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="courseLanguage" formControlName="courseLanguage" placeholder="Course Language">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="courseLevel" class="col-sm-3 col-form-label">Course Level</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="courseLevel" formControlName="courseLevel" placeholder="Course Level">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="courseImages" class="col-sm-3 col-form-label">Course Image's</label>
+                    <div class="col-sm-9">
+                        <input type="file" class="form-control-file" (change)="uploadImg($event)" formControlName="courseImages" placeholder="Course Image">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="courseVideos" class="col-sm-3 col-form-label">Course Short Video</label>
+                    <div class="col-sm-9">
+                        <input type="file" class="form-control-file" (change)="uploadVideo($event)" formControlName="courseVideos" placeholder="Course Image">
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-12">
+
+                        <!---Section box-->
+                        <section class="container border mb-4 p-3" *ngFor="let course of section; let i = index;">
+                            <h4>Section {{i + 1}}</h4><br>
+
+                            <!---Section add-->
+                            <div class="row">
+                                <div class="col-6">
+                                    <input type="text" class="form-control" readonly placeholder="Section Name" /><br>
+                                </div>
+
+                                <div class="col-6">
+                                    <input type="text" class="form-control" placeholder="Content Name" /><br>
+                                </div>
+
+                            </div>
+
+                            <!-- add Courses section -->
+                            <section class="container border mb-4 p-3" *ngFor="let course of courses; let i = index;">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h4>Lecture {{i + 1}}</h4>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <button type="button" class="btn btn-danger btn-sm" (click)="removeCourse(i)">Remove</button>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label>Chapter Name</label>
+                                            <input type="text" class="form-control" (change)=uploadCourse($event) placeholder="Chapter Name" />
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="">Upload course</label>
+                                            <input type="file" class="form-control-file">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-primary mb-2" (click)="addCourse()">Add Lecture</button>
+                            </section>
+                            <button type="button" class="btn btn-primary mb-2" (click)="addSections()">Add Section</button>
+                            <button type="button" class="btn btn-danger btn-sm" (click)="removeSection(i)">Remove</button>
+
+                        </section>
+
+                        <!--  -->
+
+
+                    </div>
+                </div>
+
+                <!---- Start Multiple files upload course-->
+
+                <!-- <input type="file" class="form-control" (change)="save($event)" multiple="multiple" /><br>
+                <span>{{result}}</span><br> -->
+
+                <!---- End Multiple files upload course-->
+
+                <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<input type="file" name="cameraImg" id="cameraImg" (change)="onSelectedFile($event)" />

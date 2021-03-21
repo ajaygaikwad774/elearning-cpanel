@@ -1,0 +1,37 @@
+<div class="col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title"><b>News Detail's</b></h4><br>
+      <div class="table-responsive" #epltable>
+        <div class="col-sm-12">
+          <button (click)="exportToExcel()" class="btn btn-success">Excel File</button> 
+      </div><hr>
+        <table datatable  [dtTrigger]="dtTrigger" class="row-border hover">
+          <thead>
+            <tr>
+              <th>News Title</th>
+              <th>News Subject</th>
+              <th>News Image</th>
+              <th>News Description</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of feeds">
+              <td>{{ item.feedsTitle }}</td>
+              <td>{{ item.feedsSubject }}</td>
+              <td> <img [src]="item.feedsImage" height="50px" width="50px"> </td>
+              <td>{{ item.feedsDescription }}</td>
+              <td><button type="button" class="btn btn-danger" (click)="delete(item.encMstFeedsId)">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,32 @@
+<div class="col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title"><b>Advertisement Detail's</b></h4><br>
+      <div class="table-responsive" #epltable>
+        <div class="col-sm-12">
+          <button (click)="exportToExcel()" class="btn btn-success">Excel File</button> 
+      </div><hr>
+        <table datatable  [dtTrigger]="dtTrigger" class="row-border hover">
+          <thead>
+            <tr>
+              <th>Advertise Name</th>
+              <th>Advertise Image</th>
+              <th>Date</th> 
+              <th> Hourly Basis </th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of ads">
+              <td>{{ item.adsDescription }}</td>
+              <td><img src="{{ item.adsImage }}" style="height: 100px; width: 100px;" alt=""></td>
+              <td>{{ item.auditDetails.createTime | date: 'dd/MM/yyyy' }}</td>
+              <td> {{ago(item.auditDetails.createTime)}} </td>
+              <td><button type="submit" class="btn btn-danger" (click)="delete(item.encMstAdsId)"> delete </button></td>
+            </tr>
+          </tbody>
+        </table> 
+      </div>
+    </div>
+  </div>
+</div>

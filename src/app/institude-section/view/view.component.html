@@ -1,0 +1,40 @@
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title"><b>Institide Detail's</b></h4><br>
+            <div class="table-responsive" #epltable>
+                <div style="padding-bottom: 10px;padding-top: 10px;">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button (click)="exportToExcel()" class="btn btn-success">Excel File</button>
+                        </div>
+                    </div>
+                </div><hr>
+                <table datatable [dtTrigger]="dtTrigger" class="row-border hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Date of Birth</th>
+                            <th>Education</th>
+                            <th>Skill Set</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of institutes">
+                            <td>{{ item.student.title }} {{ item.student.firstNm }} {{ item.student.middleNm }} {{ item.student.lastNm }}</td>
+                            <td>{{ item.student.gender }}</td>
+                            <td>{{ item.student.dob }}</td>
+                            <td>{{ item.student.education }}</td>
+                            <td>{{ item.student.skillSet}}</td>
+                            <td>{{ item.student.type}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,29 @@
+<div class="col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title"><b>Course Detail's</b></h4><br>
+      <div class="table-responsive">
+        <table datatable  [dtTrigger]="dtTrigger" class="row-border hover">
+          <thead>
+            <tr>
+              <th>Course Title</th>
+              <th>Course Sub-Title</th>
+              <th>Course Language</th>
+              <th>Course Description</th>
+              <th>Course Level</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of courses">
+              <td>{{ item.courseTitle }}</td>
+              <td>{{ item.courseSubTitle }}</td>
+              <td>{{ item.courseLanguage }}</td>
+              <td>{{ item.courseDesc }}</td>
+              <td>{{ item.courseLevel }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

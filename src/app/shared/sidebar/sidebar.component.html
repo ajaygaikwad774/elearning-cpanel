@@ -1,0 +1,238 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+        <li class="nav-item nav-profile">
+            <a href="javascript:;" class="nav-link">
+                <div class="nav-profile-image">
+                    <img src="assets/images/faces/face16.jpg" alt="profile">
+                    <span class="login-status online"></span>
+                    <!--change to offline or busy as needed-->
+                </div>
+                <div class="nav-profile-text">
+                    <span class="font-weight-bold mb-2">Sunil Sir</span>
+                    <span class="text-secondary text-small">Project Manager</span>
+                </div>
+                <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+            </a>
+        </li>
+        <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }">
+            <a class="nav-link" routerLink="/dashboard" routerLinkActive #dashboard="routerLinkActive">
+                <span class="menu-title">Dashboard</span>
+                <i class="mdi mdi-home menu-icon"></i>
+            </a>
+        </li>
+
+        <!--company custome-->
+
+        <li class="nav-item">
+            <a class="nav-link" (click)="company = !company" [attr.aria-expanded]="company" aria-controls="auth">
+                <span class="menu-title">Company Section</span>
+                <i class=" menu-arrow"></i>
+                <i class="mdi mdi-medical-bag menu-icon"></i>
+            </a>
+            <div class="collapse" id="auth" [ngbCollapse]="!company">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" routerLink="/company/view" routerLinkActive="active"> View
+                            Company
+                            <i class="mdi mdi-table menu-icon"></i>
+                        </a></li>
+                </ul>
+            </div>
+        </li>
+        <!--company end custome-->
+
+        <!--job custome-->
+        <li class="nav-item">
+            <a class="nav-link" (click)="job = !job" [attr.aria-expanded]="job" aria-controls="auth">
+                <span class="menu-title">Job Section</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-medical-bag menu-icon"></i>
+            </a>
+            <div class="collapse" id="auth" [ngbCollapse]="!job">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" routerLink="/job-section/view-job"
+                            routerLinkActive="active"> View Job
+                            <i class="mdi mdi-table menu-icon"></i>
+                        </a></li>
+                </ul>
+            </div>
+        </li>
+        <!--job end custome-->
+
+        <!--institude custome-->
+        <li class="nav-item">
+            <a class="nav-link" (click)="institude = !institude" [attr.aria-expanded]="institude" aria-controls="auth">
+                <span class="menu-title">Institute Section</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-medical-bag menu-icon"></i>
+            </a>
+            <div class="collapse" id="auth" [ngbCollapse]="!institude">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" routerLink="/institude-section/add-institude"
+                            routerLinkActive="active"> Add Institute
+                            <i class="mdi mdi-hospital menu-icon"></i>
+                        </a></li>
+                    <li class="nav-item"> <a class="nav-link" routerLink="/institude-section/view-institude"
+                            routerLinkActive="active"> View Institute
+                            <i class="mdi mdi-table menu-icon"></i>
+                        </a></li>
+                </ul>
+            </div>
+        </li>
+        <!--institude end custome-->
+
+        <!--student custome-->
+        <li class="nav-item">
+            <a class="nav-link" (click)="student = !student" [attr.aria-expanded]="student" aria-controls="auth">
+                <span class="menu-title">Student Section</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-medical-bag menu-icon"></i>
+            </a>
+            <div class="collapse" id="auth" [ngbCollapse]="!student">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" routerLink="/student-section/student-details"
+                            routerLinkActive="active"> Student Detail's
+                            <i class="mdi mdi-table menu-icon"></i>
+                        </a></li>
+                </ul>
+            </div>
+        </li>
+        <!--student end custome-->
+
+        <!--course custom-->
+        <li class="nav-item">
+            <a class="nav-link" (click)="course = !course" [attr.aria-expanded]="course" aria-controls="auth">
+                <span class="menu-title">Course Section</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-medical-bag menu-icon"></i>
+            </a>
+            <div class="collapse" id="auth" [ngbCollapse]="!course">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" routerLink="/course-section/add-course"
+                            routerLinkActive="active"> Add Course
+                            <i class="mdi mdi-hospital menu-icon"></i>
+                        </a></li>
+                    <li class="nav-item"> <a class="nav-link" routerLink="/course-section/view-course"
+                            routerLinkActive="active"> View Course
+                            <i class="mdi mdi-table menu-icon"></i>
+                        </a></li>
+                </ul>
+            </div>
+        </li>
+        <!--course end custom-->
+
+        <!--story custome-->
+        <li class="nav-item">
+            <a class="nav-link" (click)="story = !story" [attr.aria-expanded]="story" aria-controls="auth">
+                <span class="menu-title">Story Section</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-medical-bag menu-icon"></i>
+            </a>
+            <div class="collapse" id="auth" [ngbCollapse]="!story">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" routerLink="/story-section/add-story"
+                            routerLinkActive="active"> Add Story
+                            <i class="mdi mdi-hospital menu-icon"></i>
+                        </a></li>
+                    <li class="nav-item"> <a class="nav-link" routerLink="/story-section/view-story"
+                            routerLinkActive="active"> View Story
+                            <i class="mdi mdi-table menu-icon"></i>
+                        </a></li>
+                </ul>
+            </div>
+        </li>
+        <!--story end custome-->
+
+        <!--ads custome-->
+        <li class="nav-item">
+            <a class="nav-link" (click)="ads = !ads" [attr.aria-expanded]="ads" aria-controls="auth">
+                <span class="menu-title">Advertisement Section</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-medical-bag menu-icon"></i>
+            </a>
+            <div class="collapse" id="auth" [ngbCollapse]="!ads">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" routerLink="/ads-section/add-ads"
+                            routerLinkActive="active"> Add Ads
+                            <i class="mdi mdi-hospital menu-icon"></i>
+                        </a></li>
+                    <li class="nav-item"> <a class="nav-link" routerLink="/ads-section/view-ads"
+                            routerLinkActive="active"> View Ads
+                            <i class="mdi mdi-table menu-icon"></i>
+                        </a></li>
+                </ul>
+            </div>
+        </li>
+        <!--ads end custome-->
+
+        <!--news custome-->
+        <li class="nav-item">
+            <a class="nav-link" (click)="news = !news" [attr.aria-expanded]="news" aria-controls="auth">
+                <span class="menu-title">News Section</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-medical-bag menu-icon"></i>
+            </a>
+            <div class="collapse" id="auth" [ngbCollapse]="!news">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" routerLink="/news-section/add-news"
+                            routerLinkActive="active"> Add news
+                            <i class="mdi mdi-hospital menu-icon"></i>
+                        </a></li>
+                    <li class="nav-item"> <a class="nav-link" routerLink="/news-section/view-news"
+                            routerLinkActive="active"> View news
+                            <i class="mdi mdi-table menu-icon"></i>
+                        </a></li>
+                </ul>
+            </div>
+        </li>
+        <!--news end custome-->
+
+
+        <!--feedback page-->
+        <li class="nav-item">
+            <a class="nav-link" (click)="feedback = !feedback" [attr.aria-expanded]="feedback" aria-controls="auth">
+                <span class="menu-title">Feedback</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-medical-bag menu-icon"></i>
+            </a>
+            <div class="collapse" id="auth" [ngbCollapse]="!feedback">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" routerLink="general-pages/blank-page"
+                            routerLinkActive="active" #blankPage="routerLinkActive"> Feedback
+                            <i class="mdi mdi-table menu-icon"></i>
+                        </a></li>
+                    <!-- <li class="nav-item"> <a class="nav-link" routerLink="user-pages/login" routerLinkActive="active" #login="routerLinkActive"> Login </a></li>
+            <li class="nav-item"> <a class="nav-link" routerLink="user-pages/register" routerLinkActive="active" #register="routerLinkActive"> Register </a></li> 
+            <li class="nav-item"> <a class="nav-link" routerLink="error-pages/404" routerLinkActive="active" #error404="routerLinkActive"> 404 </a></li>
+            <li class="nav-item"> <a class="nav-link" routerLink="error-pages/500" routerLinkActive="active" #error500="routerLinkActive"> 500 </a></li>-->
+                </ul>
+            </div>
+        </li>
+        <!--feedback page-->
+
+
+
+        <!--plans custome-->
+        <li class="nav-item">
+            <a class="nav-link" (click)="plans = !plans" [attr.aria-expanded]="plans" aria-controls="plans">
+                <span class="menu-title">Subscription Plans</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-medical-bag menu-icon"></i>
+            </a>
+            <div class="collapse" id="plans" [ngbCollapse]="!plans">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" routerLink="/plan/add" routerLinkActive="active"> Add
+                            plans
+                            <i class="mdi mdi-hospital menu-icon"></i>
+                        </a></li>
+                    <li class="nav-item"> <a class="nav-link" routerLink="/plan/list" routerLinkActive="active"> View
+                            plans
+                            <i class="mdi mdi-table menu-icon"></i>
+                        </a></li>
+                </ul>
+            </div>
+        </li>
+        <!--plans end custome-->
+
+
+    </ul>
+</nav>

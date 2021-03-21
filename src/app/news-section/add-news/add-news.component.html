@@ -1,0 +1,59 @@
+<div class="col-md-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Add News Form</h4>
+      <div *ngIf="success" class="alert alert-success" role="alert" role="alert">
+        <strong> Data Saved Successfully</strong>
+      </div>
+      <form class="forms-sample" [formGroup]="form" (ngSubmit)="addnews1()">
+        <div class="form-group row">
+          <label for="feedsTitle" class="col-sm-3 col-form-label">News Title <a style="color: red;">*</a></label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="feedsTitle" formControlName="feedsTitle"
+              placeholder="News Title">
+            <div *ngIf="form.get('feedsTitle').touched && form.get('feedsTitle').invalid" style="color: red;">
+              <div *ngIf="form.get('feedsTitle').errors.required">Name title is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="feedsSubject" class="col-sm-3 col-form-label">News Subject <a style="color: red;">*</a></label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="feedsSubject" formControlName="feedsSubject"
+              placeholder="News Subjet">
+            <div *ngIf="form.get('feedsSubject').touched && form.get('feedsSubject').invalid" style="color: red">
+              <div *ngIf="form.get('feedsSubject').errors.required">News subject is required.</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="feedsDescription" class="col-sm-3 col-form-label">News Description</label>
+          <div class="col-sm-9">
+            <textarea class="form-control" id="feedsDescription" formControlName="feedsDescription" rows="4"></textarea>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="feedsimg" class="col-sm-3 col-form-label">News Image <a style="color: red;">*</a></label>
+          <div class="col-sm-9">
+            <input type="file" class="form-control-file" accept="image/png, image/jpeg, image/jpg" (change)="feedsImgConvert($event)" id="feedsimg"
+              placeholder="News Image">
+            <br>
+            <!---Progress bar-->
+            <div class="progress form-group" *ngIf="progress > 0">
+              <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width.%]="progress">
+              </div>
+            </div>
+            <div class="alert alert-success" *ngIf=successFile>
+              <strong>{{result}}</strong>
+            </div>
+            <!---Progress bar-->
+          </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-gradient-primary mr-2" [disabled]="!form.valid">Submit</button>
+        <button class="btn btn-light">Cancel</button>
+      </form>
+    </div>
+  </div>
+</div>

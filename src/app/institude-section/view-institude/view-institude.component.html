@@ -1,0 +1,43 @@
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title"><b>Institute Detail's</b></h4><br>
+            <div class="table-responsive" #epltable>
+                <div class="col-sm-12">
+                    <button (click)="exportToExcel()" class="btn btn-success">Excel File</button> 
+                </div><hr>
+                <table datatable [dtTrigger]="dtTrigger" class="row-border hover">
+                    <thead>
+                        <tr>
+                            <th>Institute Name</th>
+                            <th>Course Name</th>
+                            <th>Duration</th>
+                            <th>Institute Location</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                            <th>View Applied</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of institutes">
+                            <td>{{ item.instituteNm }}</td>
+                            <td>{{ item.courseNm }}</td>
+                            <td>{{ item.duration }}</td>
+                            <td>{{ item.instituteLocation }}</td>
+                            <td>{{ item.description }}</td>
+                            <td>
+                                <button type="submit" class="btn btn-success" routerLink="/institude-section/edit-institude/{{item.encMstInstituteId}}" routerLinkActive="active">Edit</button>
+                                <button type="reset" class="btn btn-danger"  (click)="delete(item.encMstInstituteId)">Delete</button>
+                            </td>
+                            <td>
+                                <button class="btn btn-info"
+                                    routerLink="/institude-section/view/{{item.encMstInstituteId}}"
+                                    routerLinkActive="active">Applied Student</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

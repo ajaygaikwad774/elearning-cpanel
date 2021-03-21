@@ -1,0 +1,54 @@
+<div class="d-flex align-items-center auth px-0">
+  <div class="row w-100 mx-0">
+    <div class="col-lg-5 mx-auto">
+      <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+        <h4 style="text-align: center">Login</h4>
+          <div *ngIf="error" class="alert alert-danger" role="alert" role="alert">
+            <strong > {{message}} </strong>
+          </div>
+
+        <form class="pt-3" (ngSubmit)="login()" [formGroup]="loginForm">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control form-control-lg " formControlName="emailId"
+             [ngClass]="{ 'is-invalid': (emailId.dirty || emailId.touched) && emailId.errors }"/>
+
+            <div *ngIf="(emailId.dirty || emailId.touched) && emailId.errors" class="errors">
+              <span *ngIf="emailId.errors?.required" >Email is required</span>
+              <span *ngIf="emailId.errors?.email || emailId.errors?.pattern">Please Enter Proper Email Address</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="">Password</label>
+            <input type="password" formControlName="pwd" class="form-control form-control-lg"
+            [ngClass] = "{'is-invalid' : (pwd.dirty || pwd.touched) && pwd.errors }"/>
+
+            <div *ngIf="(pwd.dirty || pwd.touched) && pwd.errors" class="errors">
+              <span *ngIf="pwd.errors?.required" >Password is required</span>
+              <span *ngIf="pwd.errors?.minlength">Password needs to be 6 characters</span>
+            </div>
+          </div>
+          <div class="mt-3">
+            <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
+              [disabled]="!loginForm.valid">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+              SIGN IN
+            </button>
+          </div>
+          <div class="my-2 d-flex justify-content-between align-items-center">
+            <div class="form-check">
+              <label class="form-check-label text-muted">
+                <input type="checkbox" class="form-check-input" />
+                <i class="input-helper"></i>
+                Keep me signed in
+              </label>
+            </div>
+            <a href="javascript:(void)" class="auth-link text-black"
+              >Forgot password?</a
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

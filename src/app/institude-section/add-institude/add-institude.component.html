@@ -1,0 +1,56 @@
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Add Institute Form</h4>
+        <div *ngIf="success" class="alert alert-success" role="alert" role="alert">
+          <strong> Data Saved Successfully</strong>
+        </div>
+        <form class="forms-sample" [formGroup]="form" (ngSubmit)="addinstitude1()" >
+          <div class="form-group row">
+            <label for="instituteNm" class="col-sm-3 col-form-label">Institute Name <a style="color: red;">*</a></label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="instituteNm" formControlName="instituteNm" placeholder="Institude Name">
+              <div *ngIf="form.get('instituteNm').touched && form.get('instituteNm').invalid" style="color: red;">
+                <div *ngIf="form.get('instituteNm').errors.required">Institude name is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="courseNm" class="col-sm-3 col-form-label">Course Name <a style="color: red;">*</a></label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="courseNm" formControlName="courseNm" placeholder="Course Name">
+              <div *ngIf="form.get('courseNm').touched && form.get('courseNm').invalid" style="color: red;">
+                <div *ngIf="form.get('courseNm').errors.required">Course name is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="duration" class="col-sm-3 col-form-label">Duration <a style="color: red;">*</a></label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="duration" formControlName="duration" placeholder="Duration">
+              <div *ngIf="form.get('duration').touched && form.get('duration').invalid" style="color: red;">
+                <div *ngIf="form.get('duration').errors.required">Duration is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="instituteLocation" class="col-sm-3 col-form-label">Institute Location <a style="color: red;">*</a></label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="instituteLocation" formControlName="instituteLocation" placeholder="Institude Location">
+              <div *ngIf="form.get('instituteLocation').touched && form.get('instituteLocation').invalid" style="color: red;">
+                <div *ngIf="form.get('instituteLocation').errors.required">Name title is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="description" class="col-sm-3 col-form-label">Description </label>
+            <div class="col-sm-9">
+              <textarea class="form-control" id="description" formControlName="description" rows="4"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-gradient-primary mr-2" [disabled]="!form.valid">Submit</button>
+          <button class="btn btn-light" type="reset">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>

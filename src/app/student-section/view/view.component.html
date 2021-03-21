@@ -1,0 +1,75 @@
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">View Student Section</h4>
+        <form class="forms-sample">
+          <div class="form-group row">
+            <label for="title" class="col-sm-3 col-form-label">Title</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="title" [value]="studentList.title" readonly  placeholder="">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="fName" class="col-sm-3 col-form-label">First Name</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="fName" [value]="studentList.firstNm" readonly placeholder="">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="mName" class="col-sm-3 col-form-label">Middle Name</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="mName" [value]="studentList.middleNm" readonly placeholder="">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="lName" class="col-sm-3 col-form-label">Last Name</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="lName" [value]="studentList.lastNm" readonly placeholder="">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="mail" class="col-sm-3 col-form-label">Email</label>
+            <div class="col-sm-9">
+              <input type="email" class="form-control" id="mail" [value]="studentList.emailId" readonly placeholder="">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="age" class="col-sm-3 col-form-label">Age</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="age" [value]="studentList.age" readonly placeholder="">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="gender" class="col-sm-3 col-form-label">Gender</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="gender" [value]="studentList.gender" readonly placeholder="">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="dob" class="col-sm-3 col-form-label">Date of Birth</label>
+            <div class="col-sm-9">
+              <input type="date" class="form-control" id="dob" [value]="studentList.dob" readonly placeholder="">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="education" class="col-sm-3 col-form-label">Qualification</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="education" [value]="studentList.education" readonly placeholder="">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="mNumber" class="col-sm-3 col-form-label">Mobile Number</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="mNumber" [value]="studentList.user?.mobileNo" readonly placeholder="">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="address" class="col-sm-3 col-form-label">Address</label>
+            <div class="col-sm-9">
+              <textarea name="" id="address" [value]="studentList.address?.addrLn1" class="form-control" cols="15" rows="5" readonly></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

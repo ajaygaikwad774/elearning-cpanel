@@ -1,0 +1,30 @@
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title"><b>Company Detail's</b></h4><br>
+            <div class="table-responsive" #epltable>
+                <div class="col-sm-12">
+                    <button (click)="exportToExcel()" class="btn btn-success">Excel File</button> 
+                </div><hr>
+                <table datatable [dtTrigger]="dtTrigger" class="row-border hover">
+                    <thead>
+                        <tr>
+                            <th>Company Name</th>
+                            <th>Company Location</th>
+                            <th>Company Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of companys">
+                            <td>{{ item.companyNm }}</td>
+                            <td>{{ item.companyLocation }}</td>
+                            <td>{{ item.companyDesc }}</td>
+                            <td><button type="submit" class="btn btn-success" routerLink="/company/company-jobs/{{item.encMstCompanyId}}" routerLinkActive="active">view job</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
