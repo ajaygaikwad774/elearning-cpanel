@@ -38,11 +38,11 @@ export class PasswordComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.httpClient.post<any[]>(this.baseUrl, { email: "ajaygaikwad@gmail.com", encMstAdminId: this.currentUser.encMstUsrId, "status": "ACTIVE" })
+    this.httpClient.post<any[]>(this.baseUrl, { email: "ajaygaikwad@gmail.com", encMstAdminId: this.currentUser.encMstId, "status": "ACTIVE" })
       .subscribe(data => {
         this.user = (data as any).adminVoList[0].user;
         this.form = new FormGroup({
-          encMstUsrId: new FormControl(this.user.encMstUsrId, Validators.required),
+          encMstUsrId: new FormControl(this.currentUser.encMstUsrId, Validators.required),
           oldPwd: new FormControl('', Validators.required),
           newPwd: new FormControl('', Validators.required),
           cpwd: new FormControl('',Validators.required),
